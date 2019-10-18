@@ -1,0 +1,27 @@
+<html ng-app="testApp">
+  <head>
+    <title>Bank Application</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  </head>
+  <body ng-controller="testController">
+    <h2>Bank Application</h2>
+
+    <select ng-model="selectedName" ng-options="x for x in names" ng-click="getRequest()">
+    </select>
+    <input type="text" placeholder="Search" ng-model="searchText" >
+
+    <table border="1px">
+      <tr ng-repeat="x in response.data | filter : searchText">
+        <p><td>{{ x.bank_name}}</td></p>
+        <p><td>{{ x.ifsc}}</td></p>
+        <p><td>{{ x.branch}}</td></p>
+        <p><td>{{ x.address}}</td></p>
+        <p><td>{{ x.district}}</td></p>
+        <p><td>{{ x.state }}</td></p>
+      </tr>
+    </table>
+
+    <script src="script.js"></script>
+  </body>
+</html>
