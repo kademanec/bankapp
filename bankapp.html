@@ -1,27 +1,64 @@
 <html ng-app="testApp">
-  <head>
-    <title>Bank Application</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  </head>
-  <body ng-controller="testController">
-    <h2>Bank Application</h2>
+<head>
+  <title>Bank Application</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script data-require="angular-ui-bootstrap@0.3.0" data-semver="0.3.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>
+</head>
 
+<body ng-controller="testController">
+  <div class="navbar navbar-expand-md bg-light navbar-light">
+    <span>Bank Application</span>
+
+  </div>
+  <br>
+  <div class="container">
     <select ng-model="selectedName" ng-options="x for x in names" ng-click="getRequest()">
     </select>
-    <input type="text" placeholder="Search" ng-model="searchText" >
-
+    <input type="text" placeholder="Search" ng-model="searchText">
+    <br>
+    <br>
     <table border="1px">
       <tr ng-repeat="x in response.data | filter : searchText">
-        <p><td>{{ x.bank_name}}</td></p>
-        <p><td>{{ x.ifsc}}</td></p>
-        <p><td>{{ x.branch}}</td></p>
-        <p><td>{{ x.address}}</td></p>
-        <p><td>{{ x.district}}</td></p>
-        <p><td>{{ x.state }}</td></p>
+        <td> {{x.bank_name}} </td>
+        <td>{{ x.ifsc}}</td>
+        <td>{{ x.branch}}</td>
+        <td>{{ x.address}}</td>
+        <td>{{ x.district}}</td>
+        <td>{{ x.state }}</td>
       </tr>
     </table>
 
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <div data-pagination="" data-num-pages="numPages()" data-current-page="currentPage" data-max-size="maxSize" data-boundary-links="true"></div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
+<style media="screen">
+  .navbar {
+    background-color: #FF00FF
+  }
+
+  span {
+    color: #FF851B;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 26px;
+  }
+
+  td {
+    color: #000000;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+
+
+  }
+</style>
